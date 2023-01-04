@@ -1,7 +1,7 @@
 const { v4 } = require("uuid")
 const AWS = require("aws-sdk")
-import middy from '@middy/core'
-import jsonBodyParser from '@middy/http-json-body-parser'
+const middy = require("@middy/core")
+const jsonBodyParser = require("@middy/http-json-body-parser")
 
 const addTodo = async (event) => {
 

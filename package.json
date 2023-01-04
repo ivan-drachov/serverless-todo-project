@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,6 +13,7 @@
     "@middy/core": "^4.0.5",
     "@middy/http-json-body-parser": "^4.0.4",
     "aws-sdk": "^2.1272.0",
+    "timers-promises": "^1.0.1",
     "uuid": "^9.0.0"
   }
 }
