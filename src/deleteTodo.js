@@ -3,30 +3,23 @@ const AWS = require("aws-sdk")
 const middy = require("@middy/core")
 const httpJsonBodyParser = require("@middy/http-json-body-parser")
 
-const updateTodo = async (event) => {
+const deleteTodo = async (event) => {
 
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 const {id} = event.pathParameters
 
-const { completed } = event.body;
-
-await dynamodb.update({
+await dynamodb.delete({
   TableName: "TodoTable",
-  Key: {id},
-  UpdateExpression: 'set completed = :completed',
-  ExpressionAttributeValues: {
-    ':completed': completed
-  },
-  ReturnValues: "ALL_NEW"
+  Key: {id}
 }).promise()
 
   return {
-    statusCode: 200,
+    statusCode: 204,
     body: JSON.stringify({
-        msg: "Todo Updated"
+        msg: "Todo Deleted successfully!"
     }),
   };
 };
 module.exports = {
-  handler: middy(updateTodo).use(httpJsonBodyParser())
+  handler: middy(deleteTodo).use(httpJsonBodyParser())
 }

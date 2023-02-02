@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@middy/core": "^4.0.5",
+    "@middy/http-error-handler": "^4.2.3",
     "@middy/http-json-body-parser": "^4.0.4",
     "aws-sdk": "^2.1272.0",
     "timers-promises": "^1.0.1",
